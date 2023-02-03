@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import qs from 'qs';
-import { API_KEY, BASE_URL } from '../config/config';
+import { API_KEY, BASE_URL, SEARCH_URL } from '../config/config';
 
 
 let url = BASE_URL;
@@ -85,3 +85,35 @@ export const getShowDetails  = async (id,listType) => {
     throw error;
   }
 }
+
+
+export const getSearchResults = async (searchQuery, type) => {
+  const searchURL = url + SEARCH_URL + type;
+  console.log('searchQuery>' + searchQuery);
+  console.log('type' + type);
+  console.log('searchURL' + searchURL);
+  try {
+    const params = {
+      api_key: API_KEY,
+      language: 'en-US',
+      page: 1,
+      query: searchQuery,
+      include_adult: false,
+    };
+
+    const searchResults = axios.create({
+      paramsSerializer: (params) =>
+        qs.stringify(params, { arrayFormat: 'repeat' }),
+    });
+
+    const response = await searchResults.get(searchURL, { params });
+    const result = response.data.results;
+
+    //console.log('result', result);
+
+    return result;
+  } catch (error) {
+    console.log('error' + error);
+    throw error;
+  }
+};
