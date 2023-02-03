@@ -1,6 +1,7 @@
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { Text } from "native-base";
+import ListTv from "../screens/ListTv";
 
 import ListMovies from '../screens/movies';
 import SearchMovie from "../screens/SearchMovie";
@@ -29,7 +30,7 @@ const StackTabs = () => (
       options={{
         title: () => <Text>TV Shows</Text>,
       }}
-      component={ListMovies}
+      component={ListTv}
     />
   </Tab.Navigator>
 

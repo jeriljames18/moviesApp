@@ -5,7 +5,7 @@ import MovieList from "./MovieList";
 
 const selectOptions = [
     ['Popular', 'popular'],
-    ['Now Playing', 'now_playing'],
+    ['Now Playing', 'on_the_air'],
     ['Top Rated', 'top_rated'],
     ['Upcoming', 'upcoming'],
 ];
