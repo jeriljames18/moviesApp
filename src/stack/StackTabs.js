@@ -21,7 +21,7 @@ const StackTabs = () => (
     <Tab.Screen
       name="Search Results"
       options={{
-        title: () => <Text>Search Results</Text>,
+        title: () => <Text>Search Shows</Text>,
       }}
       component={SearchMovie}
     />

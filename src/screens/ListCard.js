@@ -15,8 +15,9 @@ const ListCard = (props) => {
 
     const { id, image, title, navigation, release_date, popularity, listType } = props;
     return (
-        <Box borderRadius="md">
-            <HStack borderBottomWidth={'0.5'} padding="3">
+        <Center>
+            <Box borderRadius="md" width="100%">
+            <HStack borderBottomWidth={'0.6'} padding="2">
                 <Box>
                     {image ? (
                         <Image
@@ -38,20 +39,21 @@ const ListCard = (props) => {
                     <Button
                         variant="solid"
                         width="100%"
-                        // onPress={() =>
-                        //     navigation.navigate('Detail', 
-                        //     {
-                        //         id,
-                        //         title,
-                        //         listType,
-                        //     })
-                        // }
+                        onPress={() =>
+                            navigation.navigate('ShowDetails', 
+                            {
+                                id,
+                                title,
+                                listType,
+                            })
+                        }
                     >
                         More Details
                     </Button>
                 </VStack>
             </HStack>
         </Box>
+        </Center>
     )
 }
 

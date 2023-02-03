@@ -56,3 +56,32 @@ export const getTvShows = async (type) => {
     throw err;
   }
 }
+
+export const getShowDetails  = async (id,listType) => {
+
+
+  listType = listType || 'movie';
+  const showDetailURL = `${url}${listType}/${id}`;
+  console.log(showDetailURL);
+  try {
+    const params = {
+      api_key: API_KEY,
+      language: 'en-US',
+    };
+
+    const showDetails = axios.create({
+      paramsSerializer: (params) =>
+        qs.stringify(params, { arrayFormat: 'repeat' }),
+    });
+
+    const response = await showDetails.get(showDetailURL, { params });
+
+    const result = response.data;
+
+
+    return result;
+  } catch (err) {
+    console.log('error' + err);
+    throw error;
+  }
+}
