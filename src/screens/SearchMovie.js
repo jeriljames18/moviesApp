@@ -2,6 +2,7 @@ import { Center, Text } from "native-base";
 import { useState } from "react";
 import { getSearchResults } from "../config/api_s";
 import SearchForm from "../forms/SearchForm";
+import MovieList from "./MovieList";
 
 
 const SearchMovie = ({ navigation }) => {
@@ -29,7 +30,7 @@ const SearchMovie = ({ navigation }) => {
         <>
             <SearchForm onSearchClick={onSearchClick} emptyList={emptyList} />
             {searchQuery && searchResult ? (
-                <ListView list={searchResult} navigation={navigation} />
+                <MovieList list={searchResult} navigation={navigation} />
             ) : (
                 <Center>
                     <Text fontSize={20} fontWeight="bold" color={'#444'}>

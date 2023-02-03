@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.production.min";
+import { useState } from "react";
 import { Ionicons } from '@expo/vector-icons';
 import {
     Box,
@@ -58,7 +58,6 @@ const SearchForm = (props) => {
                                 }
                                 onChangeText={(value) => {
                                     setSearchQuery(value);
-                                    //setFormData({ ...formData, name: value });
                                 }}
                             />
                         </Box>
